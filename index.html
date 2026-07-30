@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>VALE PERDIDO — Expedição ao Mundo dos Dinossauros</title>
-<meta name="description" content="Uma expedição cinematográfica e imersiva a um mundo esquecido onde os dinossauros ainda caminham. Role, explore e viva a jornada.">
-<meta name="theme-color" content="#070f0c">
+<title>VALE PERDIDO — Terminal de Contenção</title>
+<meta name="description" content="Terminal de monitoramento de campo — catálogo técnico de espécimes de um vale onde os dinossauros ainda existem. 100% original.">
+<meta name="theme-color" content="#050907">
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23070f0c'/%3E%3Cpath d='M22 70 Q30 40 50 42 Q56 30 70 28 Q80 27 82 36 Q70 36 66 44 Q80 46 82 58 L60 58 Q52 66 40 68 L44 76 L34 76 L30 68 Q24 70 22 70Z' fill='%23d4af37'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23050907'/%3E%3Ccircle cx='50' cy='50' r='34' fill='none' stroke='%235be8a0' stroke-width='3'/%3E%3Ccircle cx='50' cy='50' r='6' fill='%235be8a0'/%3E%3Cpath d='M50 16 L50 26 M50 74 L50 84 M16 50 L26 50 M74 50 L84 50' stroke='%235be8a0' stroke-width='3'/%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="VALE PERDIDO — Expedição ao Mundo dos Dinossauros">
-<meta property="og:description" content="Uma jornada cinematográfica e 100% original por uma floresta pré-histórica onde os dinossauros ainda existem.">
+<meta property="og:title" content="VALE PERDIDO — Terminal de Contenção">
+<meta property="og:description" content="Catálogo técnico e 100% original de espécimes de um vale onde os dinossauros ainda existem.">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VALE PERDIDO — Expedição ao Mundo dos Dinossauros">
+<meta name="twitter:title" content="VALE PERDIDO — Terminal de Contenção">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,29 +26,31 @@
 <div id="cursor-ring"></div>
 <div id="cursor-dot"></div>
 
-<!-- ============ FX LAYERS ============ -->
-<canvas id="fx-canvas"></canvas>
+<!-- ============ GLOBAL BACKGROUND LAYERS ============ -->
+<div class="bg-grid"></div>
+<div class="bg-scanlines"></div>
+<div class="bg-vignette"></div>
 <canvas id="rain-canvas"></canvas>
 <div class="lightning-flash"></div>
 <div id="expedition-progress"></div>
 
-<!-- ============ INTRO ============ -->
+<!-- ============ INTRO (system boot) ============ -->
 <div id="intro">
   <div class="intro-fog"><span></span><span></span><span></span></div>
   <div class="roar-flash"></div>
-  <div class="intro-footprints">
-    <svg viewBox="0 0 40 55"><path d="M20 2C11 2 8 14 9 24c1 8-3 14-3 20 0 6 5 9 11 9s10-4 11-10c1-7-2-13-1-21C28 14 29 2 20 2Z"/></svg>
-    <svg viewBox="0 0 40 55"><path d="M20 2C11 2 8 14 9 24c1 8-3 14-3 20 0 6 5 9 11 9s10-4 11-10c1-7-2-13-1-21C28 14 29 2 20 2Z"/></svg>
-    <svg viewBox="0 0 40 55"><path d="M20 2C11 2 8 14 9 24c1 8-3 14-3 20 0 6 5 9 11 9s10-4 11-10c1-7-2-13-1-21C28 14 29 2 20 2Z"/></svg>
-    <svg viewBox="0 0 40 55"><path d="M20 2C11 2 8 14 9 24c1 8-3 14-3 20 0 6 5 9 11 9s10-4 11-10c1-7-2-13-1-21C28 14 29 2 20 2Z"/></svg>
-  </div>
   <div class="intro-content">
-    <div class="intro-eyebrow mono">Expedição Confidencial &middot; Setor 09</div>
-    <h1 class="intro-title">Existe um mundo que<br>a ciência esqueceu de <em>fechar</em>.</h1>
-    <p class="intro-sub mono">Ative o som para uma experiência completa — fones de ouvido recomendados.</p>
-    <button class="btn intro-start" id="start-expedition">Iniciar Expedição</button>
+    <div class="boot-log mono" id="boot-log">
+      <div class="line">&gt; INICIALIZANDO TERMINAL DE CONTENÇÃO...</div>
+      <div class="line">&gt; CONECTANDO SENSORES DE CAMPO... <span class="ok">OK</span></div>
+      <div class="line">&gt; SINCRONIZANDO CATÁLOGO GENÉTICO... <span class="ok">OK</span></div>
+      <div class="line">&gt; SINAIS BIOLÓGICOS DETECTADOS NO VALE... <span class="ok">10</span></div>
+      <div class="line">&gt; AGUARDANDO AUTORIZAÇÃO DE ACESSO_</div>
+    </div>
+    <h1 class="intro-title">Existe um vale que<br>a ciência não <em>fechou</em>.</h1>
+    <p class="intro-sub mono">ATIVE O ÁUDIO PARA RECEBER OS SENSORES DE CAMPO EM TEMPO REAL.</p>
+    <button class="btn intro-start" id="start-expedition">Acessar Terminal</button>
   </div>
-  <div class="intro-hint"><span class="pulse-dot"></span> clique para atravessar a névoa</div>
+  <div class="intro-hint"><span class="pulse-dot"></span> clique para autenticar</div>
 </div>
 
 <div id="portal"></div>
@@ -56,15 +58,16 @@
 <!-- ============ NAV ============ -->
 <nav class="nav" id="nav">
   <a href="#hero" class="nav-logo">
-    <svg viewBox="0 0 100 100"><path d="M22 70 Q30 40 50 42 Q56 30 70 28 Q80 27 82 36 Q70 36 66 44 Q80 46 82 58 L60 58 Q52 66 40 68 L44 76 L34 76 L30 68 Q24 70 22 70Z" fill="#d4af37"/></svg>
-    Vale Perdido
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="none" stroke="#5be8a0" stroke-width="6"/><circle cx="50" cy="50" r="8" fill="#5be8a0"/><path d="M50 10 L50 24 M50 76 L50 90 M10 50 L24 50 M76 50 L90 50" stroke="#5be8a0" stroke-width="6"/></svg>
+    VALE PERDIDO
   </a>
+  <div class="nav-status mono">
+    <span class="pulse-dot"></span> SISTEMA ONLINE
+  </div>
   <div class="nav-links mono">
-    <a href="#ch-1">Floresta</a>
-    <a href="#ch-5">Predadores</a>
-    <a href="#ch-6">Laboratório</a>
-    <a href="#gallery">Espécies</a>
-    <a href="#expedition-map">Mapa</a>
+    <a href="#specimens">Espécimes</a>
+    <a href="#containment-map">Mapa</a>
+    <a href="#finale">Sistema</a>
   </div>
   <div style="display:flex; align-items:center; gap:12px;">
     <button class="nav-sound" id="sound-toggle" aria-label="Ativar som">
@@ -81,432 +84,100 @@
 
   <!-- ============ HERO ============ -->
   <section id="hero">
-    <div class="parallax-layer" data-depth="0.2" style="background:radial-gradient(ellipse at 30% 15%, rgba(242,206,109,0.25), transparent 55%);"></div>
-
-    <!-- sky / clouds -->
-    <svg class="parallax-layer scene-svg" data-depth="0.4" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-      <ellipse class="cloud-drift" cx="260" cy="140" rx="180" ry="34" fill="rgba(200,215,205,0.10)"/>
-      <ellipse class="cloud-drift" cx="900" cy="90" rx="240" ry="40" fill="rgba(200,215,205,0.08)" style="animation-delay:-8s"/>
-      <ellipse class="cloud-drift" cx="1300" cy="180" rx="160" ry="28" fill="rgba(200,215,205,0.09)" style="animation-delay:-16s"/>
-    </svg>
-
-    <!-- volcano + mountains -->
-    <svg class="parallax-layer scene-svg" data-depth="0.7" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-      <ellipse cx="1180" cy="260" rx="60" ry="90" fill="rgba(224,138,60,0.15)"/>
-      <polygon points="1080,420 1180,180 1280,420" fill="#0a1e15"/>
-      <polygon points="1150,210 1180,180 1210,210 1195,230 1165,230" fill="#e08a3c" opacity=".8"/>
-      <polygon points="150,460 380,240 520,400 700,220 900,440 1050,300 1250,460 1600,380 1600,700 0,700" fill="#0d2418"/>
-    </svg>
-
-    <!-- god rays -->
-    <div class="god-rays"></div>
-
-    <!-- distant jungle canopy -->
-    <svg class="parallax-layer scene-svg" data-depth="1" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-      <polygon points="0,560 120,470 260,540 380,460 520,530 660,450 800,540 960,460 1100,540 1260,470 1400,545 1600,480 1600,720 0,720" fill="#122c1c"/>
-    </svg>
-
-    <!-- waterfall + lake -->
-    <svg class="parallax-layer scene-svg" data-depth="1.15" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-      <rect x="330" y="260" width="34" height="360" fill="rgba(210,230,225,0.22)" class="water-shimmer"/>
-      <rect x="352" y="260" width="16" height="360" fill="rgba(210,230,225,0.35)" class="water-shimmer" style="animation-delay:-1s"/>
-      <ellipse cx="350" cy="620" rx="120" ry="26" fill="rgba(210,230,225,0.18)"/>
-      <ellipse cx="900" cy="700" rx="420" ry="60" fill="rgba(80,140,150,0.14)" class="water-shimmer" style="animation-delay:-2s"/>
-    </svg>
-
-    <!-- mid-ground jungle + walking herbivores -->
-    <svg class="parallax-layer scene-svg" data-depth="1.3" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-      <polygon points="0,660 140,560 300,640 460,540 640,650 820,540 1000,650 1180,560 1360,650 1600,570 1600,900 0,900" fill="#0a1a12"/>
-    </svg>
-
-    <div class="hero-dinos" aria-hidden="true">
-      <div class="hero-dino hero-dino--1" data-dino="brachio" data-anim="dino-walk dino-breathe dino-drift-slow"></div>
-      <div class="hero-dino hero-dino--2" data-dino="triceratops" data-anim="dino-walk dino-breathe"></div>
-      <div class="hero-dino hero-dino--ptero" data-dino="ptero" data-anim="dino-breathe ptero-fly"></div>
+    <div class="hero-radar" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <circle class="ring" cx="200" cy="200" r="80"/>
+        <circle class="ring" cx="200" cy="200" r="140"/>
+        <circle class="ring" cx="200" cy="200" r="196"/>
+        <g class="sweep">
+          <path d="M200,200 L200,4 A196,196 0 0,1 336,63 Z" fill="url(#sweepGrad)"/>
+        </g>
+        <defs>
+          <linearGradient id="sweepGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#5be8a0" stop-opacity="0.35"/>
+            <stop offset="1" stop-color="#5be8a0" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <circle class="blip" cx="260" cy="140" r="4"/>
+        <circle class="blip" cx="140" cy="250" r="3" style="animation-delay:-1s"/>
+        <circle class="blip" cx="230" cy="270" r="3.5" style="animation-delay:-2s"/>
+        <circle class="blip" cx="150" cy="150" r="3" style="animation-delay:-.5s"/>
+      </svg>
     </div>
-
-    <div class="vignette"></div>
-
     <div class="hero-content">
-      <div class="eyebrow">Um mundo que o tempo não fechou</div>
-      <h1 class="hero-title">O Mundo Perdido<span class="line2">ainda respira.</span></h1>
-      <p class="hero-desc">Uma expedição sensorial por uma terra intocada, onde criaturas colossais caminham livres entre vulcões, cachoeiras e florestas primitivas. Mova o mouse. Role a tela. Explore.</p>
+      <div class="eyebrow">Terminal de Contenção &middot; Setor 09</div>
+      <h1 class="hero-title">O Vale Perdido<span class="line2">está sendo monitorado.</span></h1>
+      <p class="hero-desc">Um catálogo técnico e 100% original de um ecossistema onde criaturas colossais ainda existem. Sensores ativos, dados em tempo real, dez espécimes catalogados.</p>
+      <div class="hero-metrics mono">
+        <div class="metric"><b>10</b><span>Espécimes</span></div>
+        <div class="metric"><b>03</b><span>Zonas Ativas</span></div>
+        <div class="metric"><b>24/7</b><span>Monitoramento</span></div>
+      </div>
       <div class="hero-ctas">
-        <a href="#ch-1" class="btn">Começar a Jornada</a>
-        <a href="#gallery" class="btn btn-ghost">Ver Espécies</a>
+        <a href="#specimens" class="btn">Ver Espécimes</a>
+        <a href="#containment-map" class="btn btn-ghost">Mapa de Contenção</a>
       </div>
     </div>
-
     <div class="hero-scroll-cue"><span>ROLE PARA EXPLORAR</span><div class="scroll-line"></div></div>
   </section>
 
-  <!-- ============ CH.1 — ENTRADA NA FLORESTA ============ -->
-  <section class="chapter" id="ch-1">
-    <div class="chapter-bg"></div>
-    <div class="wrap chapter-inner">
-      <div class="chapter-grid">
-        <div>
-          <div class="chapter-number reveal">Capítulo I</div>
-          <div class="eyebrow reveal">Entrada na Floresta</div>
-          <h2 class="reveal">A fronteira entre dois mundos</h2>
-          <p class="reveal">O ar muda antes mesmo de você ver a primeira folha gigante. Umidade densa, o cheiro de terra molhada e um silêncio que antecede algo grande. Esta é a porta de entrada — o último ponto onde o mundo moderno ainda existe.</p>
-          <div class="chapter-tags reveal">
-            <span class="tag">Neblina Volumétrica</span>
-            <span class="tag">Vegetação Densa</span>
-            <span class="tag">Ponto de Não Retorno</span>
-          </div>
-        </div>
-        <div class="chapter-stage reveal-scale">
-          <svg viewBox="0 0 500 420" style="position:absolute;inset:0;width:100%;height:100%;">
-            <polygon points="0,340 60,260 130,320 210,240 300,330 380,250 500,320 500,420 0,420" fill="#0d2116"/>
-            <polygon points="0,380 90,320 200,370 320,300 430,375 500,340 500,420 0,420" fill="#081712"/>
-            <g class="tree-sway" style="transform-origin:120px 420px;"><ellipse cx="120" cy="230" rx="70" ry="90" fill="#123020" opacity=".8"/></g>
-            <g class="tree-sway" style="transform-origin:380px 420px; animation-delay:-2s;"><ellipse cx="380" cy="210" rx="80" ry="100" fill="#0f2a1b" opacity=".8"/></g>
-          </svg>
-          <div class="hero-dino hero-dino--inline" data-dino="para" data-anim="dino-walk dino-breathe" style="width:46%;left:28%;bottom:10%;"></div>
-        </div>
+  <!-- ============ SHORT BLURB ============ -->
+  <section id="intro-blurb">
+    <div class="wrap">
+      <div class="blurb-panel reveal">
+        <p>Depois que os sensores de campo detectaram sinais biológicos incompatíveis com qualquer espécie catalogada, este terminal passou a rastrear e documentar cada espécime do vale — comportamento, ameaça estimada e status de contenção, atualizados em tempo real.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ CH.2 — HERBÍVOROS GIGANTES ============ -->
-  <section class="chapter" id="ch-2">
-    <div class="chapter-bg"></div>
-    <div class="wrap chapter-inner">
-      <div class="chapter-grid">
-        <div class="chapter-stage reveal-scale" style="order:2;">
-          <svg viewBox="0 0 500 420" style="position:absolute;inset:0;width:100%;height:100%;">
-            <ellipse cx="250" cy="380" rx="260" ry="40" fill="rgba(80,140,90,0.15)"/>
-          </svg>
-          <div class="hero-dino hero-dino--inline" data-dino="brachio" data-anim="dino-walk dino-breathe" style="width:62%;left:20%;bottom:6%;"></div>
-        </div>
-        <div>
-          <div class="chapter-number reveal">Capítulo II</div>
-          <div class="eyebrow reveal">Herbívoros Gigantes</div>
-          <h2 class="reveal">Gigantes gentis do vale</h2>
-          <p class="reveal">Manadas inteiras se movem em câmera lenta, moldando a paisagem por onde passam. Pescoços que tocam as nuvens, passos que fazem a terra tremer — mas nenhum sinal de agressão. Apenas grandiosidade tranquila.</p>
-          <div class="chapter-tags reveal">
-            <span class="tag">Braquiossauro</span>
-            <span class="tag">Tricerátopo</span>
-            <span class="tag">Parassaurolofo</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CH.3 — VALE DAS CACHOEIRAS ============ -->
-  <section class="chapter" id="ch-3">
-    <div class="chapter-bg"></div>
-    <div class="wrap chapter-inner">
-      <div class="chapter-grid">
-        <div>
-          <div class="chapter-number reveal">Capítulo III</div>
-          <div class="eyebrow reveal">Vale das Cachoeiras</div>
-          <h2 class="reveal">Onde o rio encontra o céu</h2>
-          <p class="reveal">Quedas d'água despencam de penhascos cobertos de musgo, alimentando lagos cristalinos onde pterossauros mergulham em busca de peixes. A névoa das cachoeiras cria arco-íris que duram o dia inteiro.</p>
-          <div class="chapter-tags reveal">
-            <span class="tag">Água Cristalina</span>
-            <span class="tag">Pterodáctilo</span>
-            <span class="tag">Reflexos Realistas</span>
-          </div>
-        </div>
-        <div class="chapter-stage reveal-scale">
-          <svg viewBox="0 0 500 420" style="position:absolute;inset:0;width:100%;height:100%;">
-            <polygon points="0,60 160,60 190,420 0,420" fill="#0a2a30"/>
-            <rect x="160" y="60" width="36" height="360" fill="rgba(210,230,225,0.28)" class="water-shimmer"/>
-            <rect x="182" y="60" width="16" height="360" fill="rgba(230,245,240,0.4)" class="water-shimmer" style="animation-delay:-1.4s"/>
-            <ellipse cx="230" cy="360" rx="220" ry="50" fill="rgba(70,130,150,0.22)" class="water-shimmer" style="animation-delay:-2.2s"/>
-          </svg>
-          <div class="hero-dino hero-dino--inline" data-dino="ptero" data-anim="dino-breathe" style="width:30%;right:8%;top:14%;left:auto;bottom:auto;"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CH.4 — FLORESTA DENSA ============ -->
-  <section class="chapter" id="ch-4">
-    <div class="chapter-bg"></div>
-    <div class="wrap chapter-inner">
-      <div class="chapter-grid">
-        <div class="chapter-stage reveal-scale" style="order:2;">
-          <svg viewBox="0 0 500 420" style="position:absolute;inset:0;width:100%;height:100%;">
-            <g class="tree-sway" style="transform-origin:90px 420px;"><ellipse cx="90" cy="180" rx="90" ry="120" fill="#0c2417"/></g>
-            <g class="tree-sway" style="transform-origin:250px 420px; animation-delay:-1.5s;"><ellipse cx="250" cy="150" rx="100" ry="140" fill="#0a1f14"/></g>
-            <g class="tree-sway" style="transform-origin:420px 420px; animation-delay:-3s;"><ellipse cx="420" cy="190" rx="90" ry="120" fill="#0c2417"/></g>
-          </svg>
-          <div class="hero-dino hero-dino--inline" data-dino="anky" data-anim="dino-walk dino-breathe" style="width:44%;left:30%;bottom:6%;"></div>
-        </div>
-        <div>
-          <div class="chapter-number reveal">Capítulo IV</div>
-          <div class="eyebrow reveal">Floresta Densa</div>
-          <h2 class="reveal">O coração verde do vale</h2>
-          <p class="reveal">A luz mal atravessa o dossel. Aqui vivem as espécies mais discretas e resistentes — blindadas, cautelosas, movendo-se devagar entre samambaias gigantes e troncos cobertos de líquen luminoso.</p>
-          <div class="chapter-tags reveal">
-            <span class="tag">Anquilossauro</span>
-            <span class="tag">Vento nas Árvores</span>
-            <span class="tag">Poeira em Suspensão</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CH.5 — REGIÃO DOS PREDADORES ============ -->
-  <section class="chapter" id="ch-5">
-    <div class="chapter-bg"></div>
-    <div class="wrap chapter-inner">
-      <div class="chapter-grid">
-        <div>
-          <div class="chapter-number reveal">Capítulo V</div>
-          <div class="eyebrow reveal">Região dos Predadores</div>
-          <h2 class="reveal">O topo da cadeia alimentar</h2>
-          <p class="reveal">Um rugido distante ecoa pelo cânion. A terra treme sob passos pesados. Esta é a zona de maior risco da expedição — território de caçadores que não perdoam hesitação.</p>
-          <div class="chapter-tags reveal">
-            <span class="tag">Tiranossauro</span>
-            <span class="tag">Velocirraptor</span>
-            <span class="tag">Tremor de Câmera</span>
-          </div>
-        </div>
-        <div class="chapter-stage reveal-scale">
-          <svg viewBox="0 0 500 420" style="position:absolute;inset:0;width:100%;height:100%;">
-            <polygon points="0,300 0,220 100,120 200,240 300,100 400,220 500,150 500,260 0,300" fill="#170b06"/>
-            <ellipse cx="250" cy="360" rx="280" ry="80" fill="rgba(224,138,60,0.16)"/>
-          </svg>
-          <div class="hero-dino hero-dino--inline" data-dino="trex" data-anim="dino-walk dino-breathe" style="width:56%;left:24%;bottom:4%;"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CH.6 — LABORATÓRIO CIENTÍFICO ============ -->
-  <section class="chapter" id="ch-6">
-    <div class="chapter-bg"></div>
-    <div class="wrap chapter-inner">
-      <div class="chapter-grid">
-        <div class="chapter-stage reveal-scale lab-panel" style="order:2;">
-          <div class="dna-wrap">
-            <svg viewBox="0 0 200 380" width="60%" height="90%">
-              <g class="dino-breathe" style="transform-origin:100px 190px;">
-                <path d="M40,10 C120,50 80,90 160,130 C80,170 120,210 40,250 C120,290 80,330 160,370" fill="none" stroke="#4caf7d" stroke-width="3" opacity=".7"/>
-                <path d="M160,10 C80,50 120,90 40,130 C120,170 80,210 160,250 C80,290 120,330 40,370" fill="none" stroke="#d4af37" stroke-width="3" opacity=".7"/>
-              </g>
-            </svg>
-          </div>
-          <div class="lab-readout mono">
-            &gt; ANÁLISE_GENÉTICA.................<span class="val">OK</span><br>
-            &gt; ESPÉCIME.......................<span class="val">CATALOGADO</span><br>
-            &gt; INTEGRIDADE_AMOSTRA............<span class="val">98.4%</span><br>
-            &gt; STATUS_EXPEDIÇÃO...............<span class="val">EM CURSO</span>
-          </div>
-        </div>
-        <div>
-          <div class="chapter-number reveal">Capítulo VI</div>
-          <div class="eyebrow reveal">Laboratório Científico</div>
-          <h2 class="reveal">Onde o mistério é estudado</h2>
-          <p class="reveal">Uma estação de pesquisa avançada, escondida entre as rochas, estuda como este ecossistema sobreviveu ao tempo. Telas de vidro, dados em tempo real e mais perguntas do que respostas.</p>
-          <div class="chapter-tags reveal">
-            <span class="tag">Glassmorphism</span>
-            <span class="tag">Interface HUD</span>
-            <span class="tag">Pesquisa Fictícia</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CH.7 — OBSERVATÓRIO ELEVADO ============ -->
-  <section class="chapter" id="ch-7">
-    <div class="chapter-bg"></div>
-    <div class="wrap chapter-inner">
-      <div class="chapter-grid">
-        <div>
-          <div class="chapter-number reveal">Capítulo VII</div>
-          <div class="eyebrow reveal">Observatório Elevado</div>
-          <h2 class="reveal">A vista que muda tudo</h2>
-          <p class="reveal">No topo de um penhasco, uma plataforma suspensa revela a real escala do vale. Daqui, é possível ver todas as regiões já exploradas — e todas as que ainda esperam por você.</p>
-          <div class="chapter-tags reveal">
-            <span class="tag">Altitude</span>
-            <span class="tag">Vento Constante</span>
-            <span class="tag">Vista Panorâmica</span>
-          </div>
-        </div>
-        <div class="chapter-stage reveal-scale">
-          <svg viewBox="0 0 500 420" style="position:absolute;inset:0;width:100%;height:100%;">
-            <polygon points="0,420 40,220 120,320 220,140 320,300 400,180 500,260 500,420" fill="#0e1f28"/>
-            <rect x="200" y="300" width="100" height="10" fill="#1a2c38"/>
-            <rect x="235" y="230" width="10" height="80" fill="#1a2c38"/>
-            <rect x="255" y="230" width="10" height="80" fill="#1a2c38"/>
-          </svg>
-          <div class="hero-dino hero-dino--inline" data-dino="ptero" data-anim="dino-breathe ptero-hover" style="width:30%;left:12%;top:16%;"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CH.8 — VALE DOS GIGANTES ============ -->
-  <section class="chapter" id="ch-8">
-    <div class="chapter-bg"></div>
-    <div class="wrap chapter-inner">
-      <div class="chapter-grid">
-        <div class="chapter-stage reveal-scale" style="order:2;">
-          <svg viewBox="0 0 500 420" style="position:absolute;inset:0;width:100%;height:100%;">
-            <ellipse cx="250" cy="380" rx="260" ry="40" fill="rgba(180,170,60,0.12)"/>
-          </svg>
-          <div class="hero-dino hero-dino--inline" data-dino="brachio" data-anim="dino-walk dino-breathe" style="width:58%;left:6%;bottom:8%;"></div>
-          <div class="hero-dino hero-dino--inline" data-dino="stego" data-anim="dino-walk dino-breathe" style="width:34%;right:2%;bottom:2%;left:auto;"></div>
-        </div>
-        <div>
-          <div class="chapter-number reveal">Capítulo VIII</div>
-          <div class="eyebrow reveal">Vale dos Gigantes</div>
-          <h2 class="reveal">Onde a escala perde o sentido</h2>
-          <p class="reveal">As maiores criaturas do vale se reúnem nesta planície aberta. Cada passo é sentido antes de ser ouvido. Prepare-se: a câmera treme quando os gigantes se aproximam.</p>
-          <div class="chapter-tags reveal">
-            <span class="tag">Estegossauro</span>
-            <span class="tag">Braquiossauro</span>
-            <span class="tag">Escala Épica</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ GALLERY — ESPÉCIES ============ -->
-  <section id="gallery">
+  <!-- ============ SPECIMEN GRID ============ -->
+  <section id="specimens">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow">Catálogo da Expedição</div>
-        <h2>Dez espécies catalogadas</h2>
-        <p>Cada criatura documentada pela equipe científica — silhuetas geradas a partir de registros de campo, com comportamento e locomoção simulados em tempo real.</p>
+        <div class="eyebrow">Catálogo Genético</div>
+        <h2>Dez espécimes catalogados</h2>
+        <p>Esquemas técnicos gerados a partir dos registros de campo — cada espécime documentado com nível de ameaça e status de contenção.</p>
       </div>
-      <div class="gallery-grid">
-
-        <article class="dino-card">
-          <div class="dino-card-inner">
-            <div class="dino-card-stage"><div data-dino="trex" data-anim="dino-walk dino-breathe" data-fill-card></div></div>
-            <span class="latin" data-field="latin"></span>
-            <h3 data-field="name"></h3>
-            <p data-field="desc"></p>
-            <div class="stats" data-stats></div>
-          </div>
-        </article>
-
-        <article class="dino-card">
-          <div class="dino-card-inner">
-            <div class="dino-card-stage"><div data-dino="raptor" data-anim="dino-walk dino-breathe" data-fill-card></div></div>
-            <span class="latin" data-field="latin"></span>
-            <h3 data-field="name"></h3>
-            <p data-field="desc"></p>
-            <div class="stats" data-stats></div>
-          </div>
-        </article>
-
-        <article class="dino-card">
-          <div class="dino-card-inner">
-            <div class="dino-card-stage"><div data-dino="spino" data-anim="dino-walk dino-breathe" data-fill-card></div></div>
-            <span class="latin" data-field="latin"></span>
-            <h3 data-field="name"></h3>
-            <p data-field="desc"></p>
-            <div class="stats" data-stats></div>
-          </div>
-        </article>
-
-        <article class="dino-card">
-          <div class="dino-card-inner">
-            <div class="dino-card-stage"><div data-dino="triceratops" data-anim="dino-walk dino-breathe" data-fill-card></div></div>
-            <span class="latin" data-field="latin"></span>
-            <h3 data-field="name"></h3>
-            <p data-field="desc"></p>
-            <div class="stats" data-stats></div>
-          </div>
-        </article>
-
-        <article class="dino-card">
-          <div class="dino-card-inner">
-            <div class="dino-card-stage"><div data-dino="brachio" data-anim="dino-walk dino-breathe" data-fill-card></div></div>
-            <span class="latin" data-field="latin"></span>
-            <h3 data-field="name"></h3>
-            <p data-field="desc"></p>
-            <div class="stats" data-stats></div>
-          </div>
-        </article>
-
-        <article class="dino-card">
-          <div class="dino-card-inner">
-            <div class="dino-card-stage"><div data-dino="stego" data-anim="dino-walk dino-breathe" data-fill-card></div></div>
-            <span class="latin" data-field="latin"></span>
-            <h3 data-field="name"></h3>
-            <p data-field="desc"></p>
-            <div class="stats" data-stats></div>
-          </div>
-        </article>
-
-        <article class="dino-card">
-          <div class="dino-card-inner">
-            <div class="dino-card-stage"><div data-dino="anky" data-anim="dino-walk dino-breathe" data-fill-card></div></div>
-            <span class="latin" data-field="latin"></span>
-            <h3 data-field="name"></h3>
-            <p data-field="desc"></p>
-            <div class="stats" data-stats></div>
-          </div>
-        </article>
-
-        <article class="dino-card">
-          <div class="dino-card-inner">
-            <div class="dino-card-stage"><div data-dino="carno" data-anim="dino-walk dino-breathe" data-fill-card></div></div>
-            <span class="latin" data-field="latin"></span>
-            <h3 data-field="name"></h3>
-            <p data-field="desc"></p>
-            <div class="stats" data-stats></div>
-          </div>
-        </article>
-
-        <article class="dino-card">
-          <div class="dino-card-inner">
-            <div class="dino-card-stage"><div data-dino="para" data-anim="dino-walk dino-breathe" data-fill-card></div></div>
-            <span class="latin" data-field="latin"></span>
-            <h3 data-field="name"></h3>
-            <p data-field="desc"></p>
-            <div class="stats" data-stats></div>
-          </div>
-        </article>
-
-        <article class="dino-card">
-          <div class="dino-card-inner">
-            <div class="dino-card-stage"><div data-dino="ptero" data-anim="dino-breathe wing-flap" data-fill-card></div></div>
-            <span class="latin" data-field="latin"></span>
-            <h3 data-field="name"></h3>
-            <p data-field="desc"></p>
-            <div class="stats" data-stats></div>
-          </div>
-        </article>
-
-      </div>
+      <div class="specimen-grid" id="specimen-grid"></div>
     </div>
   </section>
 
-  <!-- ============ EXPEDITION MAP ============ -->
-  <section id="expedition-map">
+  <!-- ============ CONTAINMENT MAP ============ -->
+  <section id="containment-map">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow">Cartografia de Campo</div>
-        <h2>Mapa da área explorada</h2>
-        <p>Acompanhe visualmente cada etapa da sua expedição pelo vale, do ponto de entrada ao vale dos gigantes.</p>
+        <div class="eyebrow">Rede de Sensores</div>
+        <h2>Mapa de contenção</h2>
+        <p>Posição relativa de cada espécime rastreado dentro das zonas monitoradas do vale.</p>
       </div>
       <div class="map-frame reveal-scale">
-        <svg class="map-svg" viewBox="0 0 1000 460" preserveAspectRatio="xMidYMid meet">
-          <polygon points="0,460 0,320 150,220 300,340 460,180 620,320 780,200 1000,300 1000,460" fill="#0c2016"/>
-          <path class="map-path" d="M80,380 C220,340 260,260 380,240 C480,220 520,300 620,280 C740,260 800,180 920,150" fill="none" stroke-width="3"/>
-          <path class="map-path-progress" d="M80,380 C220,340 260,260 380,240 C480,220 520,300 620,280 C740,260 800,180 920,150" fill="none" stroke-width="3"/>
+        <svg class="map-svg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M40 0 L0 0 0 40" class="map-grid-line" fill="none"/>
+            </pattern>
+            <radialGradient id="mapSweepGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#5be8a0" stop-opacity="0.3"/>
+              <stop offset="1" stop-color="#5be8a0" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect x="0" y="0" width="1000" height="520" fill="url(#mapGrid)"/>
+          <circle cx="500" cy="260" r="120" class="map-grid-line" fill="none"/>
+          <circle cx="500" cy="260" r="220" class="map-grid-line" fill="none"/>
+          <g class="map-sweep">
+            <path d="M500,260 L500,40 A220,220 0 0,1 690,150 Z" fill="url(#mapSweepGrad)"/>
+          </g>
 
-          <g class="map-node active" transform="translate(80,380)"><circle r="6" fill="#4caf7d"/><text x="12" y="4">ENTRADA</text></g>
-          <g class="map-node" transform="translate(300,262)"><circle r="6" fill="#4caf7d"/><text x="12" y="4">HERBÍVOROS</text></g>
-          <g class="map-node" transform="translate(430,232)"><circle r="6" fill="#4caf7d"/><text x="12" y="4">CACHOEIRAS</text></g>
-          <g class="map-node" transform="translate(560,296)"><circle r="6" fill="#4caf7d"/><text x="12" y="4">FLORESTA DENSA</text></g>
-          <g class="map-node" transform="translate(660,268)"><circle r="6" fill="#4caf7d"/><text x="12" y="4">PREDADORES</text></g>
-          <g class="map-node" transform="translate(760,206)"><circle r="6" fill="#4caf7d"/><text x="12" y="4">LABORATÓRIO</text></g>
-          <g class="map-node" transform="translate(850,178)"><circle r="6" fill="#4caf7d"/><text x="-12" y="-10" text-anchor="end">OBSERVATÓRIO</text></g>
-          <g class="map-node" transform="translate(910,150)"><circle r="6" fill="#4caf7d"/><text x="-12" y="4" text-anchor="end">VALE DOS GIGANTES</text></g>
+          <g class="map-node" data-id="para" transform="translate(180,150)"><circle class="ring" r="12" style="color:#5be8a0"/><circle class="dot" r="4"/><text x="14" y="-8" class="id">01</text><text x="14" y="6">PARASSAUROLOFO</text></g>
+          <g class="map-node" data-id="triceratops" transform="translate(320,110)"><circle class="ring" r="12" style="color:#5be8a0"/><circle class="dot" r="4"/><text x="14" y="-8" class="id">02</text><text x="14" y="6">TRICERÁTOPO</text></g>
+          <g class="map-node" data-id="brachio" transform="translate(470,90)"><circle class="ring" r="12" style="color:#5be8a0"/><circle class="dot" r="4"/><text x="14" y="-8" class="id">03</text><text x="14" y="6">BRAQUIOSSAURO</text></g>
+          <g class="map-node" data-id="spino" transform="translate(650,140)"><circle class="ring" r="12" style="color:#ff5a4a"/><circle class="dot" r="4"/><text x="14" y="-8" class="id">04</text><text x="14" y="6">ESPINOSSAURO</text></g>
+          <g class="map-node" data-id="ptero" transform="translate(760,90)"><circle class="ring" r="12" style="color:#6fe0e6"/><circle class="dot" r="4"/><text x="14" y="-8" class="id">05</text><text x="14" y="6">PTERODÁCTILO</text></g>
+          <g class="map-node" data-id="anky" transform="translate(220,320)"><circle class="ring" r="12" style="color:#5be8a0"/><circle class="dot" r="4"/><text x="14" y="-8" class="id">06</text><text x="14" y="6">ANQUILOSSAURO</text></g>
+          <g class="map-node danger" data-id="trex" transform="translate(430,340)"><circle class="ring" r="14" style="color:#ff5a4a"/><circle class="dot" r="5"/><text x="16" y="-10" class="id">07</text><text x="16" y="8">TIRANOSSAURO</text></g>
+          <g class="map-node danger" data-id="raptor" transform="translate(560,300)"><circle class="ring" r="11" style="color:#ff5a4a"/><circle class="dot" r="4"/><text x="14" y="-8" class="id">08</text><text x="14" y="6">VELOCIRRAPTOR</text></g>
+          <g class="map-node danger" data-id="carno" transform="translate(500,410)"><circle class="ring" r="12" style="color:#ff5a4a"/><circle class="dot" r="4"/><text x="14" y="-8" class="id">09</text><text x="14" y="6">CARNOTAURO</text></g>
+          <g class="map-node" data-id="stego" transform="translate(700,380)"><circle class="ring" r="12" style="color:#5be8a0"/><circle class="dot" r="4"/><text x="14" y="-8" class="id">10</text><text x="14" y="6">ESTEGOSSAURO</text></g>
         </svg>
       </div>
     </div>
@@ -514,22 +185,13 @@
 
   <!-- ============ FINALE ============ -->
   <section id="finale">
-    <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice">
-      <polygon points="0,560 200,460 420,540 640,440 860,540 1080,440 1300,540 1600,460 1600,700 0,700" fill="#0a1a10"/>
-    </svg>
-    <div class="finale-dinos" aria-hidden="true">
-      <div class="hero-dino hero-dino--inline" data-dino="trex" data-anim="dino-walk dino-breathe" style="width:18%;left:4%;bottom:0%;opacity:.8;"></div>
-      <div class="hero-dino hero-dino--inline" data-dino="triceratops" data-anim="dino-walk dino-breathe" style="width:16%;left:24%;bottom:-2%;opacity:.8;"></div>
-      <div class="hero-dino hero-dino--inline" data-dino="brachio" data-anim="dino-walk dino-breathe" style="width:24%;right:4%;left:auto;bottom:-2%;opacity:.8;"></div>
-      <div class="hero-dino hero-dino--inline" data-dino="ptero" data-anim="dino-breathe ptero-fly" style="width:14%;top:6%;left:58%;bottom:auto;opacity:.8;"></div>
-    </div>
-    <div class="wrap" style="position:relative;z-index:5;">
-      <div class="eyebrow reveal" style="justify-content:center;">Fim da Expedição — Ou Apenas o Começo</div>
-      <h2 class="finale-title reveal">O vale continua<br><em>quando você fecha os olhos.</em></h2>
-      <p class="finale-sub reveal">Esta jornada foi uma recriação sensorial e ficcional. Nenhum animal, marca ou personagem real foi utilizado — apenas a sensação eterna de descobrir o desconhecido.</p>
-      <div class="reveal" style="display:flex; gap:18px; justify-content:center; flex-wrap:wrap;">
-        <a href="#hero" class="btn">Reviver a Expedição</a>
-        <a href="#gallery" class="btn btn-ghost">Revisar Catálogo</a>
+    <div class="wrap">
+      <div class="eyebrow reveal" style="justify-content:center;">Fim da Transmissão</div>
+      <h2 class="finale-title reveal">O vale continua<br><em>sendo observado.</em></h2>
+      <p class="finale-sub reveal">Experiência ficcional e 100% original. Nenhum animal, marca ou personagem real foi utilizado.</p>
+      <div class="reveal" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="#hero" class="btn">Reiniciar Terminal</a>
+        <a href="#specimens" class="btn btn-ghost">Revisar Catálogo</a>
       </div>
     </div>
   </section>
@@ -539,27 +201,24 @@
 <footer>
   <div class="wrap footer-grid">
     <div class="footer-note">
-      <strong style="color:var(--text-dim); font-family:'Cinzel',serif;">VALE PERDIDO</strong><br>
-      Experiência ficcional e original, criada para fins de exploração criativa e imersão sensorial. Sem qualquer vínculo com franquias, marcas ou obras protegidas de terceiros.
+      <strong style="color:var(--text-dim); font-family:'Orbitron',sans-serif;">VALE PERDIDO</strong><br>
+      Experiência ficcional e original, criada para fins de exploração criativa. Sem qualquer vínculo com franquias, marcas ou obras protegidas de terceiros.
     </div>
-    <div class="mono">© Vale Perdido — Expedição Cinematográfica</div>
+    <div class="mono">© VALE PERDIDO — TERMINAL DE CONTENÇÃO</div>
   </div>
 </footer>
 
 <!-- ============ FLOATING FX TOGGLES ============ -->
 <div class="fx-toggles">
-  <button class="fx-toggle" id="rain-toggle" aria-label="Ativar chuva">
+  <button class="fx-toggle" id="rain-toggle" aria-label="Simular tempestade">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 16.5A4.5 4.5 0 0 1 7 7.6 6 6 0 0 1 18.5 9 4 4 0 0 1 18 17H7Z"/><path d="M8 19l-1 2M12 19l-1 2M16 19l-1 2"/></svg>
   </button>
 </div>
 
-<div id="dino-defs" style="display:none"></div>
-
-<script src="js/vendor/three.min.js"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/vendor/lenis.min.js"></script>
-<script src="js/dinosaurs.js"></script>
+<script src="js/specimens.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
